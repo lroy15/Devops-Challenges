@@ -9,6 +9,8 @@ services:
     environment:
       - MYSQL_DATABASE=testing
       - MYSQL_ROOT_PASSWORD=basicpassword
+    networks:
+      - customNetwork
     ports:
       - "127.0.0.1:3308:3306"
     volumes:
@@ -31,8 +33,14 @@ services:
       DB_NAME: testing
     links:
       - db
+    networks:
+      - customNetwork 
     volumes:
       - ./:/src
 volumes:
   db:
     driver: local
+networks:
+    customNetwork:
+      name: mynetwork
+      driver: bridge
