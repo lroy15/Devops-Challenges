@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  api:
+    image: nextjs-dev
+    container_name: nextjs
+    build: .
+    ports:
+      - 3000:80
+   

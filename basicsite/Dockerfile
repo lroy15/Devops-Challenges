@@ -10,4 +10,4 @@ COPY public ./public
 COPY styles ./styles
 COPY components ./components
 
-CMD ["npm","run","dev"]
+CMD ["npm","run","dev","--","-p","80"]
