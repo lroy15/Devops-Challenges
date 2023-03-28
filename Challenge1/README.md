@@ -5,7 +5,7 @@ This folder has everything needed except the SSL certificate files. In the docke
 
 ### Containers
 
-1. nginx - the reverse proxy, forwarding requests from localhost:8888 to https://localhost:8888, which itself points to http://website:80 which is the website service running on another container. It also routes the website path with data from the database to https (http://website:80/api/getData)
+1. nginx - the reverse proxy, forwarding requests from localhost:8888 to https://localhost:8888, which itself points to http://website:80 which is the website service running on another container.
 
 2. website - the website service, running a basic nextjs website. It exposes port 80 but no ports are exposed on the host, so only containers in the same docker network can talk to it
 
