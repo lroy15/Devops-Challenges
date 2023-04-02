@@ -37,6 +37,27 @@ services:
       - customNetwork 
     volumes:
       - ./:/src
+  website2:
+    image: nextjs-dev
+    container_name: nextjs2
+    build: .
+    depends_on:
+      - db
+    expose:
+     - "80"
+    environment:
+      NODE_ENV: development
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: basicpassword
+      DB_NAME: testing
+    links:
+      - db
+    networks:
+      - customNetwork 
+    volumes:
+      - ./:/src    
   nginx:
     image: nginx:latest
     container_name: production_nginx
