@@ -23,13 +23,13 @@ The goal of this challenge is to be able to run a website or application with it
 
 The goal of this challenge is to set up a local Kubernetes cluster (1 node or more if your tooling supports it) and run the website made in the first challenge inside of it.
 
-- Read about the [basics of a local Kubernetes cluster](https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-intro/)
-- Set up a local Kubernetes cluster
+- Read about the [basics of a local Kubernetes cluster](https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-intro/)✔️
+- Set up a local Kubernetes cluster✔️
     - You can use [Minikube to do it](https://kubernetes.io/docs/tutorials/hello-minikube/) or any other tool you’d like (e.g. KubeAdm)
-- Go through the rest of [Learn Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubernetes-basics/) tutorials
-- Deploy the containers you built in the first challenge in your K8S cluster
+- Go through the rest of [Learn Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubernetes-basics/) tutorials✔️
+- Deploy the containers you built in the first challenge in your K8S cluster✔️
     - Should the Website container and the MySQL container be in the same pod or in different pods?
-- Expose your Website with a K8S service in a way that you can reach it from a browser on your computer
+- Expose your Website with a K8S service in a way that you can reach it from a browser on your computer✔️
     - **Note**: If your Kubernetes cluster/node is running inside a virtual machine, and you decide to expose your website on port 8888 on that virtual machine, you will most likely have to do some port-forwarding in your virtual machine agent. You can take a look at this link and go to the “**Forwarding Ports to a Virtual Machine**” section. Otherwise, feel free to hit me up and we’ll figure it out.
 
 - **Bonus Points**
