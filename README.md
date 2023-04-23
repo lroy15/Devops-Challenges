@@ -38,7 +38,7 @@ The goal of this challenge is to set up a local Kubernetes cluster (1 node or mo
 # Challenge 3
 # Split App/Nginx, autoscale
 
-- Split the App and Nginx containers into their own pod
+- Split the App and Nginx containers into their own pod✔️
     - The Nginx should be reachable from outside the cluster
     - The App should be reachable from within the cluster
     - Web → Nginx → App → Db
