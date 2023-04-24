@@ -42,12 +42,12 @@ The goal of this challenge is to set up a local Kubernetes cluster (1 node or mo
     - The Nginx should be reachable from outside the cluster
     - The App should be reachable from within the cluster
     - Web → Nginx → App → Db
-- Add resources requests and limits to everything
+- Add resources requests and limits to everything✔️
     - Nginx
     - App
     - Db
     - [https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)
-- Add autoscaling on everything
+- Add autoscaling on everything✔️
     - Nginx
     - App
     - Db
