@@ -53,3 +53,4 @@ The goal of this challenge is to set up a local Kubernetes cluster (1 node or mo
     - Db
     - [https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
 - [https://www.tecmint.com/linux-cpu-load-stress-test-with-stress-ng-tool/](https://www.tecmint.com/linux-cpu-load-stress-test-with-stress-ng-tool/)
+-Integrate Ingress / Ingress Controller
