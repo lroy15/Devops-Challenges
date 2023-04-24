@@ -1,0 +1,118 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 8888
+      targetPort: 443
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:tester
+          imagePullPolicy: Never
+          resources:
+            requests:
+              memory: "125Mi"
+              cpu: "250m"
+            limits:
+              memory: "250Mi"
+              cpu: "500m"  
+          ports:
+            - containerPort: 443
+          volumeMounts:
+            - mountPath: /etc/nginx/conf.d/default.conf
+              name: conf
+            - mountPath: /etc/nginx/cert/admin.pem
+              name: cert1
+            - mountPath: /etc/nginx/cert/admin-key.pem  
+              name: cert2
+       
+      volumes:
+        - name: conf
+          hostPath:
+            path: /hosthome/lj/Challenge3/Devops-Challenges/Challenge3/default.conf     
+        - name: cert1
+          hostPath: 
+            path: /hosthome/lj/certs/admin.pem
+        - name: cert2
+          hostPath:
+            path: /hosthome/lj/certs/admin-key.pem      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+spec:
+  selector:
+    app: my-web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-web
+  template:
+    metadata:
+      labels:
+        app: my-web
+    spec:
+      containers:
+        - name: website
+          image: nextjs-dev:tester
+          imagePullPolicy: Never
+          resources:
+            requests:
+              memory: "250Mi"
+              cpu: "250m"
+            limits:
+              memory: "500Mi"
+              cpu: "500m"  
+          ports: 
+            - containerPort: 80
+          env:
+          - name: NODE_ENV
+            value: "development"
+          - name: DB_HOST
+            value: "db-service.default.svc.cluster.local"    
+          - name: DB_PORT
+            value: "3306"
+          - name: DB_USER
+            value: "root"   
+          - name: DB_PASSWORD
+            value: "basicpassword"
+          - name: DB_NAME
+            value: "testing"  
+          volumeMounts:
+          - mountPath: /src
+            name: src
+      volumes:
+        - name: src
+          hostPath:
+            path: /hosthome/lj/Challenge2/Devops-Challenges/Challenge1/web
