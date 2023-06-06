@@ -1,4 +1,4 @@
-/*output "retrieved_output" {
+output "retrieved_output" {
   value = module.eks.cluster_primary_security_group_id
 }
 
