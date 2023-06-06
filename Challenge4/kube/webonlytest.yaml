@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: website
-          image: public.ecr.aws/z0z3i0h3/myrepo:latest
+          image: public.ecr.aws/w3z4g4q3/ljlabs:latest
           resources:
             requests:
               memory: "250Mi"
