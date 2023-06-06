@@ -1,7 +1,5 @@
 ### Configuration
 
-Edit IAM role in main.tf (currently set as root for my personal account)
-
 - terraform init
 
 - terraform apply
