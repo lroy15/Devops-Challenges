@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-web
+  template:
+    metadata:
+      labels:
+        app: my-web
+    spec:
+      containers:
+        - name: website
+          image: public.ecr.aws/z0z3i0h3/myrepo:latest
+          resources:
+            requests:
+              memory: "250Mi"
+              cpu: "250m"
+            limits:
+              memory: "500Mi"
+              cpu: "500m"  
+          ports: 
+            - containerPort: 80
+          env:
+          - name: NODE_ENV
+            value: "development"
+          - name: DB_HOST
+            value: "lj-db.c8nj0mdvkfr9.us-east-2.rds.amazonaws.com"    
+          - name: DB_PORT
+            value: "3306"
+          - name: DB_USER
+            value: "root"   
+          - name: DB_PASSWORD
+            value: "basicpassword"
+          - name: DB_NAME
+            value: "testing"
